@@ -26,5 +26,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
+    compile files('libs/ksoap2-android-assembly-3.6.2-jar-with-dependencies.jar')
     testCompile 'junit:junit:4.12'
 }
