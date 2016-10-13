@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">pruebaWebsService</string>
+    <string-array name="wight_units">
+        <item>"Grains</item>
+        <item>"Scruples</item>
+        <item>"Carats</item>
+        <item>"Grams</item>
+        <item>"Pennyweight</item>
+        <item>"DramAvoir</item>
+        <item>"DramApoth</item>
+        <item>"OuncesAvoir</item>
+        <item>"OuncesTroyApoth</item>
+        <item>"Poundals</item>
+        <item>"PoundsTroy</item>
+        <item>"PoundsAvoir</item>
+        <item>"Kilograms</item>
+        <item>"Stones</item>
+        <item>"QuarterUS</item>
+        <item>"Slugs</item>
+        <item>"weight100UScwt</item>
+        <item>"ShortTons</item>
+        <item>"MetricTonsTonne</item>
+        <item>"LongTons</item>
+    </string-array>
+</resources>
