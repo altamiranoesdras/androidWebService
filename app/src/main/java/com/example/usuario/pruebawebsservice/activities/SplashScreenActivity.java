@@ -1,9 +1,12 @@
-package com.example.usuario.pruebawebsservice;
+package com.example.usuario.pruebawebsservice.activities;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.usuario.pruebawebsservice.R;
+import com.example.usuario.pruebawebsservice.helpers.PreferencesManager;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -26,6 +29,11 @@ public class SplashScreenActivity extends AppCompatActivity {
     };
 
     private void goToOptions(){
-        startActivity(new Intent(this, OptionsActivity.class ));
+        if(PreferencesManager.getTermsConditions(this)){
+            startActivity(new Intent(this, OptionsActivity.class ));
+        }else {
+            startActivity(new Intent(this, TermsConditionsActivity.class ));
+        }
+
     }
 }

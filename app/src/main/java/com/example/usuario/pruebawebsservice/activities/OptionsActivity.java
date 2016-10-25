@@ -1,4 +1,4 @@
-package com.example.usuario.pruebawebsservice;
+package com.example.usuario.pruebawebsservice.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.usuario.pruebawebsservice.R;
 import com.example.usuario.pruebawebsservice.ws.RestFulClient;
 
 public class OptionsActivity extends AppCompatActivity {

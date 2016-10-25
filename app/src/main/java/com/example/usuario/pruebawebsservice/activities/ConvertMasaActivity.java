@@ -1,4 +1,4 @@
-package com.example.usuario.pruebawebsservice;
+package com.example.usuario.pruebawebsservice.activities;
 
 import android.app.ProgressDialog;
 import android.os.Handler;
@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.usuario.pruebawebsservice.R;
 import com.example.usuario.pruebawebsservice.ws.SOAPClient;
 
 public class ConvertMasaActivity extends AppCompatActivity {

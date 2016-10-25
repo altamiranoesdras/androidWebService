@@ -20,6 +20,10 @@ public class RestFulClient {
     private  static final String GET_URL="http://asiti.powerwtechnology.com:9000/getService?";
     private  static final String POST_URL="http://asiti.powerwtechnology.com:9000/postService?";
 
+    /**
+     * Connección a webService mediante metodo Get
+     * @return
+     */
     public static String connectToServerGet(){
         String result = "";
         try {
@@ -31,7 +35,7 @@ public class RestFulClient {
             //connection.setDoInput(true);
             //connection.setDoOutput(true);
             connection.setRequestMethod("GET");
-    //            connection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+            //connection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
 
             //OutputStream outputStream = new BufferedOutputStream(connection)
 
@@ -65,6 +69,10 @@ public class RestFulClient {
         return result;
     }
 
+    /**
+     * Connección a webService mediante metodo Post
+     * @return
+     */
     public static String connectToServerPost(){
         String result = "";
         try {
