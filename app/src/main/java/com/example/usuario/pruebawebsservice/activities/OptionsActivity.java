@@ -77,5 +77,9 @@ public class OptionsActivity extends AppCompatActivity {
         Toast.makeText(this, serviceResult,Toast.LENGTH_LONG).show();
     }
 
+    public void listConvertionClick(View view){
+        startActivity(new Intent(this,ConvertionListActivity.class));
+    }
+
 
 }

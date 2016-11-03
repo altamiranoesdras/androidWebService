@@ -27,6 +27,13 @@
                 android:onClick="goToSOAP" />
 
             <Button
+                android:text="VER CONVERSIONES"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button5"
+                android:onClick="listConvertionClick" />
+
+            <Button
                 android:text="CONSUMO GET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

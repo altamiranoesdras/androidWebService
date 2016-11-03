@@ -13,6 +13,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.usuario.pruebawebsservice.R;
+import com.example.usuario.pruebawebsservice.db.ConvertionTableManager;
+import com.example.usuario.pruebawebsservice.objects.Convertion;
 import com.example.usuario.pruebawebsservice.ws.SOAPClient;
 
 public class ConvertMasaActivity extends AppCompatActivity {
@@ -64,7 +66,7 @@ public class ConvertMasaActivity extends AppCompatActivity {
 
     public void convertWeight(View view){
         progressDialog = ProgressDialog.show(this,"","Precessed request...");
-        Toast.makeText(this,"Weight: "+etWeight.getText().toString()+" from: "+(String) spFromUnit.getSelectedItem()+" to: "+(String) spToUnit.getSelectedItem(),Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,"Weight: "+etWeight.getText().toString()+" from: "+(String) spFromUnit.getSelectedItem()+" to: "+(String) spToUnit.getSelectedItem(),Toast.LENGTH_LONG).show();
         new Thread(){
           @Override
           public void run(){
@@ -91,6 +93,16 @@ public class ConvertMasaActivity extends AppCompatActivity {
 
     private void showConvertedWeight(){
         progressDialog.cancel();
+        Convertion convertion = new Convertion();
+
+        convertion.setFromUnit((String) spFromUnit.getSelectedItem());
+        convertion.setToUnit((String) spToUnit.getSelectedItem());
+        convertion.setFromWeight(Double.parseDouble(etWeight.getText().toString()));
+        convertion.setToWeight(Double.parseDouble(convertedWeightValue));
+
+        Toast.makeText(this,convertion.toString(),Toast.LENGTH_LONG).show();
+        ConvertionTableManager.saveConvertion(this,convertion);
+
         Toast.makeText(this,"Weight: "+convertedWeightValue,Toast.LENGTH_LONG).show();
     }
 }

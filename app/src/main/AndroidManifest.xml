@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.ConvertMasaActivity" />
-        <activity android:name=".activities.TermsConditionsActivity"></activity>
+        <activity android:name=".activities.TermsConditionsActivity" />
+        <activity android:name=".activities.ConvertionListActivity"></activity>
     </application>
 
 </manifest>
