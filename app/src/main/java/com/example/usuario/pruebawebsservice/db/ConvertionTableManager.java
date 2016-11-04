@@ -36,34 +36,51 @@ public class ConvertionTableManager {
         return result;
     }
 
-    public  static List<Convertion> getConvertions(Context context){
-        List<Convertion> convertionList = new ArrayList<>();
+    public static List<Convertion> getConvertions(Context context){
+        List <Convertion> convertionList=new ArrayList<>();
 
-        DataBaseManager db = new DataBaseManager(context);
-        SQLiteDatabase database = db.getReadableDatabase();
+        DataBaseManager dataBaseManager=new DataBaseManager(context);
+        SQLiteDatabase database=dataBaseManager.getWritableDatabase();
 
-        Cursor cursor = database.query(DataBaseManager.CONVERTION_TABLE,
+        Cursor cursor= database.query(DataBaseManager.CONVERTION_TABLE,
                 new String[]{DataBaseManager.CONVERTION_FIEL_FROM_UNIT,
-                        DataBaseManager.CONVERTION_FIEL_FROM_WEIGHT,
                         DataBaseManager.CONVERTION_FIEL_TO_UNIT,
-                        DataBaseManager.CONVERTION_FIEL_TO_WEIGHT}, null, null, null, null, null);
-
-        Convertion tempConvertion  ;
+                        DataBaseManager.CONVERTION_FIEL_TO_WEIGHT,
+                        DataBaseManager.CONVERTION_FIEL_FROM_WEIGHT,
+                        DataBaseManager.CONVERTION_FIEL_ID},
+                null,null,null,null,null);
+        Convertion tempConvertion;
         if(cursor.moveToFirst()){
             do {
                 tempConvertion = new Convertion();
                 tempConvertion.setFromUnit(cursor.getString(0));
-                tempConvertion.setFromWeight(cursor.getDouble(1));
-                tempConvertion.setToUnit(cursor.getString(2));
-                tempConvertion.setToWeight(cursor.getDouble(3));
+                tempConvertion.setToUnit(cursor.getString(1));
+                tempConvertion.setToWeight(cursor.getDouble(2));
+                tempConvertion.setFromWeight(cursor.getDouble(3));
+                tempConvertion.setId(cursor.getInt(4));
 
                 convertionList.add(tempConvertion);
-            }while (cursor.moveToNext());
+            }while(cursor.moveToNext());
         }
 
         database.close();
-        db.close();
+        dataBaseManager.close();
 
         return convertionList;
+    }
+
+    public static boolean deleteConvertion(Context context, Convertion convertion){
+        boolean result =false;
+        DataBaseManager dataBaseManager=new DataBaseManager(context);
+        SQLiteDatabase database=dataBaseManager.getWritableDatabase();
+
+        result=(database.delete(DataBaseManager.CONVERTION_TABLE,
+                DataBaseManager.CONVERTION_FIEL_ID + "=?",
+                new String[]{Integer.toString(convertion.getId())})>=1);
+
+        database.close();
+        dataBaseManager.close();
+
+        return  result;
     }
 }

@@ -9,10 +9,19 @@ public class Convertion {
     private double toWeight;
     private String fromUnit;
     private String toUnit;
+    private Integer id;
 
     @Override
-    public String toString() {
-        return fromWeight + " " + fromUnit + " " + toWeight + " " + toUnit;
+    public String toString(){
+        return fromWeight + " " + fromUnit+ " = " + toWeight + " " + toUnit + " " + id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public double getFromWeight() {
